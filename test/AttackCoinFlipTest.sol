@@ -19,9 +19,11 @@ contract CoinFlipAttackTest is Test {
     }
 
     function test_canAttackCoinFlip() public {
-        // vm.roll(block.number + 1);
+        for (uint256 i = 0; i < 10; i++) {
+            vm.roll(block.number + 1);
+            attackCoinFlip.attack();
+        }
 
-        attackCoinFlip.attack();
         uint256 consecutiveWins = victim.consecutiveWins();
 
         assertEq(consecutiveWins, 10);

