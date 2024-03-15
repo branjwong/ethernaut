@@ -1,66 +1,26 @@
-## Foundry
+# Ethernaut Answer Key
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+> The Ethernaut is a Web3/Solidity based wargame inspired by overthewire.org, played in the Ethereum Virtual Machine. Each level is a smart contract that needs to be 'hacked'.
 
-Foundry consists of:
+https://ethernaut.openzeppelin.com/
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+This is the answer key to some of the exercises in this wargame.
 
-## Documentation
 
-https://book.getfoundry.sh/
+# Quickstart
 
-## Usage
-
-### Build
-
-```shell
-$ forge build
+```bash
+forge test
 ```
 
-### Test
+# Running transactions through the site
 
-```shell
-$ forge test
-```
+1. open browser console
+2. call `await sendTransaction({ value, to, from, data});`
 
-### Format
+More info in: https://ethernaut.openzeppelin.com/level/0x7E0f53981657345B31C59aC44e9c21631Ce710c7
 
-```shell
-$ forge fmt
-```
+# Deploying contracts
 
-### Gas Snapshots
+todo
 
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```

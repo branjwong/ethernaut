@@ -27,5 +27,9 @@ contract CoinFlipAttackTest is Test {
         uint256 consecutiveWins = victim.consecutiveWins();
 
         assertEq(consecutiveWins, 10);
+
+        vm.roll(block.number + 1);
+        vm.expectRevert();
+        attackCoinFlip.attack();
     }
 }

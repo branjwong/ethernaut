@@ -23,5 +23,9 @@
                 "solidity.telemetry": true
             }
         }
+    },
+    "remoteEnv": {
+        "SEPOLIA_RPC_URL": "https://eth-sepolia.g.alchemy.com/v2/arP5fMBZdhiC_B1aRLdBM2vJP72MlLV1",
+        "ETHERSCAN_API_KEY": "P9S5TY1ACQWN1V8CVCQTXENFQ8RASSHJQB"
     }
 }

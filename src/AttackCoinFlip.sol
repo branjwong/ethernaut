@@ -27,7 +27,10 @@ contract AttackCoinFlip {
     function callVictimWithFlip() internal {
         bool guess = makeGuess();
         bool success = victim.flip(guess);
+
         require(success, "Attack failed");
+
+        consecutiveWins++;
     }
 
     function makeGuess() internal returns (bool) {
